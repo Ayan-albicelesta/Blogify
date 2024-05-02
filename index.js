@@ -37,7 +37,7 @@ app.get('/',async (req,res)=>{
     const allBlogs=await Blog.find({}).sort({'createdAt': -1});
 
     return  res.render('home',{
-        user:req.user,//this req.user is came from upper 'c'heckForAuthenticationCookie' middleware, that holds payload, //if we do not write return befor res.render(), and suppose there were a bunch of code lines , they would have been executed after rendering but it is a good practice  to ensure that your function exits immediately after initiating a render/redirect
+        user:req.user,//this req.user is came from upper 'checkForAuthenticationCookie' middleware, that holds payload, //if we do not write return befor res.render(), and suppose there were a bunch of code lines , they would have been executed after rendering but it is a good practice  to ensure that your function exits immediately after initiating a render/redirect
         blogs:allBlogs
     })                   
 });

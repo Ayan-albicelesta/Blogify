@@ -1,5 +1,7 @@
 const User=require('../models/user.models.js')
 
+const Blog=require('../models/blog.models.js')
+
 const  {Router}=require('express')
 
 const userRouter=Router();
@@ -15,12 +17,16 @@ userRouter.get('/signin',(req,res)=>{
 userRouter.post('/signup',async (req,res)=>{
     const {fullName,email,password}=req.body
 
+    const blogs=await Blog.find();
+
     await User.create({
         fullName,
         email,
         password
     })
-    return res.render('home')
+    return res.render('home',{
+         blogs
+    })
 })
 
 userRouter.post('/signin',async (req,res)=>{
