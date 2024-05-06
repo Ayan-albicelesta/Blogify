@@ -47,5 +47,5 @@ app.use('/blog',blogRouter)
  
 
 app.listen(PORT,()=>{ 
-    console.log(`server started on port ${PORT}`);
+    console.log(`server started  port ${PORT}`);
 }) 
